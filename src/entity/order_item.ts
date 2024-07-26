@@ -23,4 +23,8 @@ export default class OrderItem{
             throw new Error("Price is required");
         }
     }
+
+    get price(): number{
+        return this._price;
+    }
 } 
