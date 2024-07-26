@@ -19,6 +19,7 @@ export default class OrderItem {
         this._productId = productId;
         this._quantity = quantity;
         this._total = this.total();
+        this.validate();
     }
 
     validate() {
