@@ -76,11 +76,14 @@ export default class OrderRepository implements OrderRepositoryInterface {
       const removedItems = currentItems.filter(
         (currentItem) => !newItems.some((newItem) => newItem.id === currentItem.id)
       );
-      for (const removedItem of removedItems) {
-        await OrderItemModel.destroy({
-          where: { id: removedItem.id },
-          transaction,
-        });
+
+      if (removedItems.length > 0) {
+        for (const removedItem of removedItems) {
+          await OrderItemModel.destroy({
+            where: { id: removedItem.id },
+            transaction,
+          });
+        }
       }
 
       // Atualiza o OrderModel
