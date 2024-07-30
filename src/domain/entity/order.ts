@@ -48,4 +48,16 @@ export default class Order {
         return this._items.reduce((acc, item) => acc + item.total(), 0);
     }
 
+    addItem(item: OrderItem): void {
+        this._items.push(item);
+        this._total = this.total();
+    }
+
+    removeItem(itemId: string): void {
+        const index = this._items.findIndex((item) => item.id === itemId);
+        if (index !== -1) {
+            this._items.splice(index, 1);
+            this._total = this.total();
+        }
+    }
 }
