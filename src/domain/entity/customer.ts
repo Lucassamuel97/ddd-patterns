@@ -1,3 +1,6 @@
+import EventDispatcherInterface from "../event/@shared/event-dispatcher.interface";
+import { CustomerAddressChangedEvent } from "../event/custumer/customer-changed-address.event";
+import { CustomerCreatedEvent } from "../event/custumer/custumer-created.event";
 import Address from "./address";
 
 export default class Custumer{
@@ -7,10 +10,23 @@ export default class Custumer{
   private _active: boolean = true;
   private _rewardPoints: number = 0;
 
+  private eventDispatcher: EventDispatcherInterface;
+
   constructor(id: string, name: string){
     this._id = id;
     this._name = name;
     this.validate();
+  }
+
+  static create(id: string, name: string, eventDispatcher: EventDispatcherInterface): Custumer {
+    const customer = new Custumer(id, name);
+    customer.eventDispatcher = eventDispatcher;
+    customer.raiseEvent(new CustomerCreatedEvent(id, name));
+    return customer;
+  }
+
+  private raiseEvent(event: any) {
+    this.eventDispatcher?.notify(event);
   }
 
   get id(): string{
@@ -53,6 +69,7 @@ export default class Custumer{
   
   changeAddress(address: Address) {
     this._address = address;
+    this.raiseEvent(new CustomerAddressChangedEvent(this.id, this.name, address));
   }
 
   activate(){
@@ -73,5 +90,4 @@ export default class Custumer{
   addRewardPoints(points: number){
     this._rewardPoints += points;
   }
-
 }
