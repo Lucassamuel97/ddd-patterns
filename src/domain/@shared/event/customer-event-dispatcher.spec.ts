@@ -1,11 +1,11 @@
-import { EnviaConsoleLog1Handler } from "../custumer/handler/log1-console-when-customer-is-created.handler";
-import { EnviaConsoleLog2Handler } from "../custumer/handler/log2-console-when-customer-is-created.handler";
-import { EnviaConsoleLogHandler } from "../custumer/handler/send-log-console-when-customer-change-address.handler";
+import { EnviaConsoleLog1Handler } from "../../custumer/event/handler/log1-console-when-customer-is-created.handler";
+import { EnviaConsoleLog2Handler } from "../../custumer/event/handler/log2-console-when-customer-is-created.handler";
+import { EnviaConsoleLogHandler } from "../../custumer/event/handler/send-log-console-when-customer-change-address.handler";
 import EventDispatcher from "./event-dispatcher";
-import Customer from "../../entity/customer";
-import Address from "../../entity/address";
-import { CustomerCreatedEvent } from "../custumer/custumer-created.event";
-import { CustomerAddressChangedEvent } from "../custumer/customer-changed-address.event";
+import Customer from "../../custumer/entity/customer";
+import Address from "../../custumer/value-object/address";
+import { CustomerCreatedEvent } from "../../custumer/event/custumer-created.event";
+import { CustomerAddressChangedEvent } from "../../custumer/event/customer-changed-address.event";
 
 describe("Customer Domain events tests", () => {
 

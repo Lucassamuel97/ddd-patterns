@@ -1,5 +1,5 @@
 import Order from "../entity/order";
-import Custumer from "../entity/customer";
+import Custumer from "../../custumer/entity/customer";
 import OrderItem from "../entity/order_item";
 import OrderService from "./order.service";
 
