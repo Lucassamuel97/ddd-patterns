@@ -2,6 +2,9 @@
 
 Este repositório contém uma aplicação de exemplo que utiliza Domain-Driven Design (DDD) com TypeScript. Este guia fornece instruções para configurar o ambiente de testes usando Jest, SWC e SQLite em memória.
 
+# Referencial teórico
+- [fullcycle](https://fullcycle.com.br/domain-driven-design/)
+
 ## Requisitos
 
 Antes de começar, certifique-se de que você tem o seguinte instalado:
@@ -15,8 +18,8 @@ Antes de começar, certifique-se de que você tem o seguinte instalado:
 Clone este repositório para a sua máquina local:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/Lucassamuel97/ddd-patterns
+cd ddd-patterns
 ```
 
 ### 2. Instalando Dependências
